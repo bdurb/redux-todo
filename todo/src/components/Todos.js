@@ -1,11 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Todo from './Todo';
 
-const Todos = () => {
+const Todos = props => {
   return (
     <div>
-      Some Todos will go here
+      {props.todos.map(todo => (
+        <Todo key={Math.random()} todo={todo} />
+      ))}
     </div>
   );
+};
+
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  }
 }
  
-export default Todos;
+export default connect(mapStateToProps) (Todos);
