@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
+import TodoForm from './TodoForm';
 
 const Todos = props => {
   return (
     <div>
+    <TodoForm />
       {props.todos.map(todo => (
         <Todo key={Math.random()} todo={todo} />
       ))}

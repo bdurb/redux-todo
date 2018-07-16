@@ -9,7 +9,7 @@ const firstState = {
 const todosReducer = (state = firstState, action) => {
     switch (action.type) {
       case "ADD_TODO":
-        return Object.assign({}, state, {...state})
+        return [...todos, action.payload]
       default:
         return state;
     }

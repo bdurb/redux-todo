@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>These are the Todos!</h1>
-        < Todos />
+        <Todos />
       </div>
     );
   }
