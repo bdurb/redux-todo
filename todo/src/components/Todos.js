@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
+
 const Todos = props => {
+  console.log(props)
   return (
     <div>
     <TodoForm />
       {props.todos.map(todo => (
-        <Todo todo={todo} />
+        <Todo key={todo.id} todo={todo} />
       ))}
     </div>
   );
@@ -16,8 +18,8 @@ const Todos = props => {
 
 const mapStateToProps = state => {
   return {
-    todos: state.todos
+    todos: state
   }
 }
  
-export default connect(mapStateToProps) (Todos);
+export default connect(mapStateToProps)(Todos);

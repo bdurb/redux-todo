@@ -15,11 +15,12 @@ class TodoForm extends Component {
   }
 
   handleAddTodo = e => {
+    e.preventDefault();
     const { text } = this.state;
     const newTodo = {
       text,
       completed: false,
-      id: Math.random()
+      id: Math.random() + text
     };
     this.props.addTodo(newTodo);
     this.setState({ text: ''});
@@ -35,10 +36,5 @@ class TodoForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    todos: state.todos
-  }
-}
  
-export default connect(mapStateToProps,{ addTodo })(TodoForm);
+export default connect(null,{ addTodo })(TodoForm);
