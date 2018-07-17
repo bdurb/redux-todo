@@ -7,9 +7,9 @@ const firstState = {
   ]
 }
 
-const todosReducer = (todos, action) => {
+const todosReducer = (todos = firstState, action) => {
     switch (action.type) {
-      case "ADD_TODO":
+      case ADD_TODO:
         return [...todos, action.payload]
       default:
         return todos;
