@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
+import { toggleTodo } from '../actions/addTodo';
 
 
-const Todos = props => {
-  console.log(props)
-  return (
-    <div>
-    <TodoForm />
-      {props.todos.map(todo => (
-        <Todo key={todo.id} todo={todo} />
-      ))}
-    </div>
-  );
+class Todos extends Component {
+  
+
+  handleToggleTodo = todoid => {
+    this.props.toggleTodo(todoid)
+  };
+
+  render() {
+    return (
+      <div>
+      <TodoForm />
+        {this.props.todos.map(todo => (
+          <Todo key={todo.id} todo={todo} toggleComplete={this.handleToggleTodo}/>
+        ))}
+      </div>
+    );
+  };
 };
 
 const mapStateToProps = state => {
@@ -22,4 +30,4 @@ const mapStateToProps = state => {
   }
 }
  
-export default connect(mapStateToProps)(Todos);
+export default connect(mapStateToProps, {toggleTodo})(Todos);
