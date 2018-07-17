@@ -27,7 +27,7 @@ class TodoForm extends Component {
     return (
       <form>
         <input onChange={this.handleSubmit} placeholder="put your todo here" />
-        <button onSubmit={this.props.addTodo}>Add Todo!</button>
+        <button onSubmit={this.props.handleAddTodo}>Add Todo!</button>
       </form>
     );
   }
