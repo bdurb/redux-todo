@@ -2,8 +2,8 @@ import { ADD_TODO } from '../actions/addTodo';
 
 const firstState = {
   todos: [
-    {value: 'walk the dog', completed: false},
-    {value: 'do some fings', completed: false}
+    {text: 'walk the dog', completed: false},
+    {text: 'do some fings', completed: false}
   ]
 }
 

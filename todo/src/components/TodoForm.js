@@ -5,32 +5,31 @@ import { addTodo } from '../actions/addTodo';
 class TodoForm extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = { 
-      value: '',
+      text: '',
      }
   }
 
   handleSubmit = (e) => {
-    this.setState({ value: e.target.value})
+    this.setState({ text: e.target.value})
   }
 
   handleAddTodo = e => {
-    const { value } = this.state;
+    const { text } = this.state;
     const newTodo = {
-      value,
+      text,
       completed: false,
       id: Math.random()
-    }
+    };
     this.props.addTodo(newTodo);
-    this.setState({ value: ''})
+    this.setState({ text: ''});
   };
-  
+
   render() { 
     return (
       <form>
-        <input onChange={this.handleSubmit} placeholder="put your todo here" value={this.state.value} />
-        <button onSubmit={this.handleAddTodo}>Add Todo!</button>
+        <input onChange={this.handleSubmit} placeholder="put your todo here" value={this.state.text} />
+        <button onClick={this.handleAddTodo}>Add Todo!</button>
       </form>
     );
   }

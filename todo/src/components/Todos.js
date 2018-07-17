@@ -8,7 +8,7 @@ const Todos = props => {
     <div>
     <TodoForm />
       {props.todos.map(todo => (
-        <Todo key={Math.random()} todo={todo} />
+        <Todo todo={todo} />
       ))}
     </div>
   );
