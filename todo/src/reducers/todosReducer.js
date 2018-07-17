@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/addTodo';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODOS } from '../actions/addTodo';
 
 
 
@@ -19,6 +19,8 @@ const todosReducer = (todos = firstTodos, action) => {
           }
           return todo;
         });
+      case DELETE_TODOS:
+        return todos.filter(todo => !todo.completed)
       default:
         return todos;
     }
